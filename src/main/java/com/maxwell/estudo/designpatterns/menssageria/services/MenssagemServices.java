@@ -1,12 +1,11 @@
-package com.maxwell.estudo.designpatterns.services;
+package com.maxwell.estudo.designpatterns.menssageria.services;
 
-import com.maxwell.estudo.designpatterns.model.Email;
-import com.maxwell.estudo.designpatterns.model.Sms;
-import com.maxwell.estudo.designpatterns.repositories.MensagemRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.maxwell.estudo.designpatterns.menssageria.model.Email;
+import com.maxwell.estudo.designpatterns.menssageria.model.Sms;
+import com.maxwell.estudo.designpatterns.menssageria.repositories.MensagemRepository;
 import org.springframework.stereotype.Service;
 
-//@Service
+@Service
 public class MenssagemServices {
 
     public static MensagemRepository getMenssagem (int id){
