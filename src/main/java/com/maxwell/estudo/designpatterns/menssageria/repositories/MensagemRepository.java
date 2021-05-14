@@ -1,6 +1,4 @@
-package com.maxwell.estudo.designpatterns.repositories;
-
-import org.springframework.stereotype.Repository;
+package com.maxwell.estudo.designpatterns.menssageria.repositories;
 
 //@Repository
 public interface MensagemRepository {
