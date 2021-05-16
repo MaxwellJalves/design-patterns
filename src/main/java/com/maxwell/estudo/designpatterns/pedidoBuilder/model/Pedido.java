@@ -1,17 +1,46 @@
 package com.maxwell.estudo.designpatterns.pedidoBuilder.model;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 public class Pedido {
 
-    private Integer id;
-    private String descricao;
-    private double valor;
-    private Cliente cliente= new Cliente();
+    private Integer numero;
+    private List<Produto> produtos;
+    private Cliente cliente;
+    private Vendedor vendedor;
 
-    public Pedido(){}
-    public Pedido(Integer id, String descricao, double valor) {
-        this.id = id;
-        this.descricao = descricao;
-        this.valor = valor;
+    public Integer getNumero() {
+        return numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
+
+    public BigDecimal getValorTotal(){
+        BigDecimal total = BigDecimal.ZERO;
+        for(Produto prd : produtos){
+            total = total.add(prd.getValor()
+                                 .multiply(BigDecimal.valueOf(
+                              prd.getQuantidade())));
+        }
+        return total;
+    }
+
+    public int getTotalItens(){
+        int n = 0;
+        for(Produto prod : produtos){
+            n += prod.getQuantidade();
+        }
+        return n;
+    }
+    public List<Produto> getProdutos() {
+       return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 
     public Cliente getCliente() {
@@ -22,34 +51,20 @@ public class Pedido {
         this.cliente = cliente;
     }
 
-    public Integer getId() {
-        return id;
+    public Vendedor getVendedor() {
+        return vendedor;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
-    public void setId(int id, String descricao, double valor) {
-        this.id = id;
-        this.descricao = descricao;
-        this.valor = valor;
-
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "produtos=" + produtos +
+                ", cliente=" + cliente +
+                ", vendedor=" + vendedor +
+                '}';
     }
 }

@@ -1,18 +1,15 @@
 package com.maxwell.estudo.designpatterns.pedidoBuilder.model;
 
-import java.io.Serializable;
-
-public class Cliente implements Serializable {
-
-    private Integer id;
+public class Vendedor {
+    private Integer identificado;
     private String nome;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdentificado() {
+        return identificado;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdentificado(Integer identificado) {
+        this.identificado = identificado;
     }
 
     public String getNome() {
@@ -25,8 +22,8 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "id=" + id +
+        return "Vendedor{" +
+                "identificado=" + identificado +
                 ", nome='" + nome + '\'' +
                 '}';
     }
